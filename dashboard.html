@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard | Life Coaching Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Life Coach</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="testimonials.html">Success Stories</a></li>
+                <li><a href="blog.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="btn-primary">Book Session</a></li>
+                <li><a href="dashboard.html" class="btn-secondary active">Dashboard</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="promise-section" style="padding-top: 40px;">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h1>Welcome to Your Dashboard</h1>
+                    <p>Track your progress, manage goals, and view upcoming sessions</p>
+                </div>
+
+                <!-- Statistics -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3 id="totalGoals">0</h3>
+                        <p>Active Goals</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="completedGoals">0</h3>
+                        <p>Completed Goals</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="upcomingSessions">0</h3>
+                        <p>Upcoming Sessions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="progressAverage">0%</h3>
+                        <p>Average Progress</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Goals Section -->
+                    <div class="dashboard-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h2>Your Goals</h2>
+                            <button class="btn-primary" onclick="showGoalForm()">+ Add New Goal</button>
+                        </div>
+                        <div id="goalsList"></div>
+                    </div>
+
+                    <!-- Sessions Section -->
+                    <div class="dashboard-card">
+                        <h2>Upcoming Sessions</h2>
+                        <div id="sessionsList"></div>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="booking.html" class="btn-primary" style="width: 100%; text-align: center; display: block;">Book New Session</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal Form (Hidden by default) -->
+                <div class="goal-form" id="goalForm" style="display: none;">
+                    <h3>Create New Goal</h3>
+                    <form id="newGoalForm">
+                        <div class="form-group">
+                            <label for="goalTitle">Goal Title *</label>
+                            <input type="text" id="goalTitle" name="goalTitle" placeholder="e.g., Complete career transition" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="goalDescription">Description</label>
+                            <textarea id="goalDescription" name="goalDescription" rows="3" placeholder="Describe your goal in detail..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="goalCategory">Category</label>
+                                <select id="goalCategory" name="goalCategory">
+                                    <option value="career">Career</option>
+                                    <option value="health">Health & Wellness</option>
+                                    <option value="relationships">Relationships</option>
+                                    <option value="personal">Personal Growth</option>
+                                    <option value="financial">Financial</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goalDeadline">Target Date</label>
+                                <input type="date" id="goalDeadline" name="goalDeadline">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Milestones (Add key steps to achieve this goal)</label>
+                            <div id="milestonesContainer"></div>
+                            <button type="button" class="btn-outline" onclick="addMilestone()" style="margin-top: 0.5rem;">+ Add Milestone</button>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <button type="submit" class="btn-primary" style="flex: 1;">Create Goal</button>
+                            <button type="button" class="btn-outline" onclick="hideGoalForm()" style="flex: 1;">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Goal Details Modal -->
+                <div class="goal-form" id="goalDetailsModal" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 id="modalGoalTitle">Goal Details</h3>
+                        <button class="btn-outline" onclick="closeGoalModal()">Close</button>
+                    </div>
+                    <div id="goalDetailsContent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Life Coach</h3>
+                    <p>Empowering you to create the life you envision</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                        <li><a href="blog.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Client Area</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Session</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="blog.html">Read Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Life Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

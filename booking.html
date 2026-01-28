@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session | Life Coaching</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Life Coach</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="testimonials.html">Success Stories</a></li>
+                <li><a href="blog.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="btn-primary active">Book Session</a></li>
+                <li><a href="dashboard.html" class="btn-secondary">Dashboard</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="promise-section" style="padding-top: 40px;">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h1 style="color: var(--primary-color); margin-bottom: 1rem;">Book Your Session</h1>
+                    <p>Choose your session type, date, and time</p>
+                </div>
+
+                <div class="booking-steps">
+                    <div class="booking-step active" id="step1">
+                        <strong>1. Session Type</strong>
+                    </div>
+                    <div class="booking-step" id="step2">
+                        <strong>2. Date & Time</strong>
+                    </div>
+                    <div class="booking-step" id="step3">
+                        <strong>3. Your Details</strong>
+                    </div>
+                    <div class="booking-step" id="step4">
+                        <strong>4. Confirmation</strong>
+                    </div>
+                </div>
+
+                <!-- Step 1: Session Type -->
+                <div class="booking-form" id="bookingStep1">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Select Session Type</h2>
+                    <div class="session-type-grid">
+                        <div class="session-type-card" data-type="discovery" data-price="0" data-duration="30">
+                            <h3>Discovery Call</h3>
+                            <div class="session-price">Free</div>
+                            <p class="session-duration">30 minutes</p>
+                            <p>Perfect for exploring coaching and discussing your goals</p>
+                        </div>
+                        <div class="session-type-card" data-type="individual" data-price="150" data-duration="60">
+                            <h3>Individual Session</h3>
+                            <div class="session-price">$150</div>
+                            <p class="session-duration">60 minutes</p>
+                            <p>One-on-one coaching tailored to your needs</p>
+                        </div>
+                        <div class="session-type-card" data-type="followup" data-price="120" data-duration="45">
+                            <h3>Follow-up Session</h3>
+                            <div class="session-price">$120</div>
+                            <p class="session-duration">45 minutes</p>
+                            <p>Continue your journey with ongoing support</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-large" onclick="nextStep(2)" style="width: 100%; margin-top: 2rem;" id="step1Next" disabled>Continue</button>
+                </div>
+
+                <!-- Step 2: Date & Time -->
+                <div class="booking-form" id="bookingStep2" style="display: none;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Select Date & Time</h2>
+                    
+                    <div class="form-group">
+                        <label>Select Date</label>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button type="button" onclick="changeMonth(-1)" class="btn-outline">← Previous</button>
+                                <h3 id="currentMonth"></h3>
+                                <button type="button" onclick="changeMonth(1)" class="btn-outline">Next →</button>
+                            </div>
+                            <div class="calendar-grid" id="calendarGrid"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="timeSlotsContainer" style="display: none;">
+                        <label>Select Time</label>
+                        <div class="time-slots" id="timeSlots"></div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn-outline btn-large" onclick="previousStep(1)" style="flex: 1;">Back</button>
+                        <button class="btn-primary btn-large" onclick="nextStep(3)" style="flex: 1;" id="step2Next" disabled>Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Client Details -->
+                <div class="booking-form" id="bookingStep3" style="display: none;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Your Information</h2>
+                    
+                    <form id="clientDetailsForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="goals">What would you like to focus on in this session?</label>
+                            <textarea id="goals" name="goals" rows="4" placeholder="Share your goals, challenges, or what you hope to achieve..."></textarea>
+                        </div>
+                    </form>
+
+                    <div class="session-summary" id="sessionSummary">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Session Summary</h3>
+                        <div class="summary-item">
+                            <span>Session Type:</span>
+                            <span id="summaryType">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Date:</span>
+                            <span id="summaryDate">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Time:</span>
+                            <span id="summaryTime">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Duration:</span>
+                            <span id="summaryDuration">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total:</span>
+                            <span id="summaryPrice">$0</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn-outline btn-large" onclick="previousStep(2)" style="flex: 1;">Back</button>
+                        <button class="btn-primary btn-large" onclick="nextStep(4)" style="flex: 1;" id="step3Next">Confirm Booking</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div class="booking-form" id="bookingStep4" style="display: none; text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">✓</div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Booking Confirmed!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Your session has been successfully booked. You'll receive a confirmation email shortly.</p>
+                    
+                    <div class="session-summary" style="text-align: left; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Booking Details</h3>
+                        <div class="summary-item">
+                            <span>Session Type:</span>
+                            <span id="confirmType">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Date:</span>
+                            <span id="confirmDate">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Time:</span>
+                            <span id="confirmTime">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Duration:</span>
+                            <span id="confirmDuration">-</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <a href="dashboard.html" class="btn-primary btn-large">Go to Dashboard</a>
+                        <a href="index.html" class="btn-outline btn-large">Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Life Coach</h3>
+                    <p>Empowering you to create the life you envision</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="testimonials.html">Success Stories</a></li>
+                        <li><a href="blog.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Client Area</h4>
+                    <ul>
+                        <li><a href="booking.html">Book Session</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="blog.html">Read Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Life Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="booking.js"></script>
+</body>
+</html>
