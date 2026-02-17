@@ -12,47 +12,22 @@
 
 <body>
     <nav class="navbar">
-        <div class="container">
+        <div class="container" style="justify-content: center;">
             <div class="nav-brand">
                 <a href="index.html">
                     <img src="logo.svg" alt="LifeCoach Logo">
                 </a>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="home-two.html">Designs</a></li>
-                <li><a href="about.html">Profile</a></li>
-                <li><a href="contact.html">Connect</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Explore</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="programs.html">Coaching</a></li>
-                        <li><a href="testimonials.html">Stories</a></li>
-                        <li><a href="blog.html">Insights</a></li>
-                    </ul>
-                </li>
-                <li class="mobile-buttons-item">
-                    <a href="login.html" class="btn-outline mobile-nav-btn">Login</a>
-                    <a href="signup.html" class="btn-primary mobile-nav-btn">Signup</a>
-                    <a href="booking.html" class="btn-primary mobile-nav-btn">Book</a>
-                    <a href="dashboard.html" class="btn-secondary mobile-nav-btn">Dashboard</a>
-                </li>
-            </ul>
-
-            <div class="nav-buttons">
-                <a href="login.html" class="btn-outline">Login</a>
-                <a href="signup.html" class="btn-primary">Signup</a>
-                <a href="booking.html" class="btn-primary">Book</a>
-                <a href="dashboard.html" class="btn-secondary">Dashboard</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
+
+    <!-- Logout Bar - After Header -->
+    <div class="top-bar"
+        style="background: var(--bg-white); border-bottom: 1px solid var(--border-color); padding: 0.5rem 0;">
+        <div class="container" style="display: flex; justify-content: flex-end;">
+            <a href="index.html" class="btn-outline" style="font-size: 0.9rem; padding: 0.4rem 1rem;">Logout</a>
+        </div>
+    </div>
 
     <section class="promise-section" style="padding-top: 40px;">
         <div class="container">
@@ -65,19 +40,19 @@
                 <!-- Statistics -->
                 <div class="dashboard-stats">
                     <div class="stat-card">
-                        <h3 id="totalGoals">0</h3>
+                        <h3 id="totalGoals">3</h3>
                         <p>Active Goals</p>
                     </div>
                     <div class="stat-card">
-                        <h3 id="completedGoals">0</h3>
+                        <h3 id="completedGoals">12</h3>
                         <p>Completed Goals</p>
                     </div>
                     <div class="stat-card">
-                        <h3 id="upcomingSessions">0</h3>
+                        <h3 id="upcomingSessions">2</h3>
                         <p>Upcoming Sessions</p>
                     </div>
                     <div class="stat-card">
-                        <h3 id="progressAverage">0%</h3>
+                        <h3 id="progressAverage">85%</h3>
                         <p>Average Progress</p>
                     </div>
                 </div>
@@ -93,14 +68,98 @@
                         <div id="goalsList"></div>
                     </div>
 
+                    <!-- Recent Activity Section (New) -->
+                    <div class="dashboard-card" style="margin-top: 2rem;">
+                        <h2>Recent Activity</h2>
+                        <ul class="activity-feed">
+                            <li class="activity-item">
+                                <span class="activity-icon"><i class="fas fa-check-circle"></i></span>
+                                <div class="activity-content">
+                                    <p>Completed goal: <strong>Morning Meditation</strong></p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <div class="activity-content">
+                                    <p>Booked session with <strong>Coach Sarah</strong></p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon"><i class="fas fa-trophy"></i></span>
+                                <div class="activity-content">
+                                    <p>Reached milestone: <strong>5-Day Streak</strong></p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- Sessions Section -->
                     <div class="dashboard-card">
                         <h2>Upcoming Sessions</h2>
-                        <div id="sessionsList"></div>
+                        <div id="sessionsList">
+                            <div class="session-card"
+                                style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem; background: var(--bg-light);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                                    <h4 style="margin: 0; color: var(--text-dark);">Career Coaching</h4>
+                                    <span
+                                        style="background: var(--primary-light); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">Confirmed</span>
+                                </div>
+                                <div style="display: flex; gap: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                                    <span><i class="far fa-calendar"></i> Tomorrow</span>
+                                    <span><i class="far fa-clock"></i> 10:00 AM</span>
+                                </div>
+                                <div style="margin-top: 0.75rem;">
+                                    <a href="#" class="btn-outline"
+                                        style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">Join Zoom</a>
+                                </div>
+                            </div>
+                            <div class="session-card"
+                                style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                                    <h4 style="margin: 0; color: var(--text-dark);">Life Planning Strategy</h4>
+                                    <span
+                                        style="background: var(--bg-gray); color: var(--text-light); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">Scheduled</span>
+                                </div>
+                                <div style="display: flex; gap: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                                    <span><i class="far fa-calendar"></i> Feb 24</span>
+                                    <span><i class="far fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
                         <div style="margin-top: 1.5rem;">
                             <a href="booking.html" class="btn-primary"
                                 style="width: 100%; text-align: center; display: block;">Book New Session</a>
                         </div>
+                    </div>
+
+                    <!-- Recommended Resources Section (New) -->
+                    <div class="dashboard-card">
+                        <h2>Recommended Resources</h2>
+                        <ul class="resource-list">
+                            <li class="resource-item">
+                                <a href="blog.html">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Guide to Mindful Living</span>
+                                </a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="blog.html">
+                                    <i class="fas fa-video"></i>
+                                    <span>Stress Management Workshop</span>
+                                </a>
+                            </li>
+                            <li class="resource-item">
+                                <a href="blog.html">
+                                    <i class="fas fa-podcast"></i>
+                                    <span>Podcast: The Power of Habit</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -162,53 +221,13 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="index.html">
-                        <img src="logo.svg" alt="LifeCoach Logo">
-                    </a>
-                    <p>Empowering you to create the life you envision</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="programs.html">Programs</a></li>
-                        <li><a href="testimonials.html">Stories</a></li>
-                        <li><a href="blog.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Client Area</h4>
-                    <ul>
-                        <li><a href="booking.html">Book Session</a></li>
-                        <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="contact.html">Get in Touch</a></li>
-                        <li><a href="blog.html">Read Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Life Coach. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="dashboard.js"></script>
 </body>
 
