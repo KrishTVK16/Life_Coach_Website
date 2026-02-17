@@ -134,44 +134,6 @@ a {
     font-size: 1.1rem;
 }
 
-/* Auth Buttons Grouping & Sizing */
-.nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: 1rem;
-}
-
-.mobile-buttons-item {
-    display: none;
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    align-items: center;
-    /* Center the buttons */
-}
-
-.mobile-nav-btn {
-    width: 150px;
-    text-align: center;
-    justify-content: center;
-}
-
-.nav-buttons .btn-primary,
-.nav-buttons .btn-secondary,
-.nav-buttons .btn-outline {
-    min-width: 100px;
-    /* Consistent width */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-}
-
 /* Navigation */
 .navbar {
     background-color: var(--bg-white);
@@ -188,34 +150,6 @@ a {
     align-items: center;
 }
 
-/* Desktop: ensure nav menu takes space but allows buttons */
-@media (min-width: 1101px) {
-    .nav-menu {
-        margin-left: auto;
-        margin-right: 1.5rem;
-    }
-}
-
-/* Mobile: hide buttons in normal flow, will need to be in mobile menu logic if we want them there, 
-   but for now let's ensure desktop layout is perfect as requested */
-@media (max-width: 1100px) {
-    .nav-buttons {
-        display: none !important;
-        /* Hide standard buttons on mobile/tablet, included in drawer via .mobile-buttons-item */
-    }
-
-    .mobile-buttons-item {
-        display: flex;
-    }
-
-    /* We need to ensure mobile menu can handle these if we move them via JS or if we duplicate them.
-       For the requested scope, strict adherence to index page desktop layout is key. 
-       Let's add mobile styles for nav-buttons appearing IN the drawer if we had JS to move them,
-       but for pure CSS, we might need a different approach or just hide them.
-       Given the request "only in index page", I'll assume desktop focus primarily or I need to handle mobile
-       by duplicating or moving. */
-}
-
 .nav-brand h1 {
     color: var(--primary-color);
     font-size: 1.5rem;
@@ -225,7 +159,7 @@ a {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -244,8 +178,7 @@ a {
 .nav-menu a.active::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    /* Push it down slightly */
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 2px;
@@ -253,7 +186,6 @@ a {
             var(--primary-color),
             white,
             var(--secondary-color)) bottom / 100% 3px no-repeat;
-    border-radius: 2px;
 }
 
 .hamburger {
@@ -268,117 +200,6 @@ a {
     height: 3px;
     background-color: var(--text-dark);
     transition: var(--transition);
-}
-
-/* Dropdown Menu Styles */
-.dropdown {
-    position: relative;
-    cursor: pointer;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.dropdown-toggle::after {
-    content: '▼';
-    font-size: 0.7em;
-    opacity: 0.7;
-    transition: transform 0.2s ease;
-}
-
-.dropdown:hover .dropdown-toggle::after {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background-color: var(--bg-white);
-    min-width: 200px;
-    box-shadow: var(--shadow-md);
-    border-radius: 8px;
-    padding: 0.5rem 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 1000;
-    border: 1px solid var(--border-color);
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-.dropdown-menu li {
-    list-style: none;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-    color: var(--text-dark);
-    white-space: nowrap;
-    transition: background-color 0.2s;
-    font-size: 0.95rem;
-}
-
-.dropdown-menu a:hover {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
-}
-
-/* Separator line inside dropdown if needed */
-.dropdown-divider {
-    height: 1px;
-    background-color: var(--border-color);
-    margin: 0.5rem 0;
-}
-
-/* Mobile Dropdown */
-/* Mobile Dropdown - Flattened for user request */
-@media (max-width: 1100px) {
-    .dropdown-toggle {
-        display: none !important;
-        /* Hide "Explore" */
-    }
-
-    .dropdown-menu {
-        position: static;
-        transform: none;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        display: block;
-        /* Always show items */
-        text-align: center;
-        width: 100%;
-        opacity: 1;
-        visibility: visible;
-        background-color: transparent;
-        min-width: auto;
-    }
-
-    .dropdown-menu li {
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .dropdown-menu a {
-        padding: 0.5rem 0;
-        /* Match main nav links */
-        font-weight: 500;
-    }
-
-    .dropdown-menu a:hover {
-        background-color: transparent;
-        color: var(--primary-color);
-    }
 }
 
 /* Original Hero Section */
@@ -462,7 +283,7 @@ a {
     box-shadow: var(--shadow-lg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .hero-grid-layout {
         grid-template-columns: 1fr;
         text-align: center;
@@ -527,7 +348,7 @@ a {
     justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .hero-v2 .hero-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -588,20 +409,6 @@ a {
     top: 160px;
     left: 30%;
     animation-delay: 1s;
-}
-
-/* Tablet Adjustment for Hero Stack to prevent overflow */
-@media (min-width: 769px) and (max-width: 1100px) {
-    .hero-card-stack {
-        transform: scale(0.85);
-        /* Slightly smaller to fit */
-        transform-origin: center center;
-    }
-
-    .visual-card:nth-child(2) {
-        left: 40%;
-        /* Pull back slightly from right edge */
-    }
 }
 
 @media (max-width: 576px) {
@@ -838,7 +645,7 @@ section {
     justify-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .process-steps {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1035,7 +842,7 @@ section {
     justify-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .blog-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1117,31 +924,6 @@ section {
 
 .footer-section a:hover {
     color: var(--primary-light);
-}
-
-.social-links {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
 }
 
 .footer-bottom {
@@ -1794,36 +1576,26 @@ section {
 }
 
 /* Responsive Design */
-@media (max-width: 1100px) {
-
-    /* Show hamburger */
-    .hamburger {
-        display: flex !important;
-    }
-
-    /* Drawer menu style */
+@media (max-width: 768px) {
     .nav-menu {
-        position: absolute;
+        position: fixed;
+        left: -100%;
         top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--bg-white);
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.5rem 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-10px);
+        background-color: var(--bg-white);
+        width: 100%;
+        text-align: center;
         transition: 0.3s;
+        box-shadow: var(--shadow-md);
+        padding: 2rem 0;
     }
 
     .nav-menu.active {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
     }
 
     .hero-title {

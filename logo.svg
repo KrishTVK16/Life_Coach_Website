@@ -1,0 +1,40 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Calm Growth Gradient -->
+    <linearGradient id="lifeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#81C784"/>
+    </linearGradient>
+
+    <!-- Green Glow Filter -->
+    <filter id="greenGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Icon Circle -->
+  <circle cx="30" cy="30" r="22" fill="url(#lifeGrad)"/>
+
+  <!-- Leaf -->
+  <path d="M30 18 C22 26, 22 34, 30 42 C38 34, 38 26, 30 18Z"
+        fill="white"/>
+
+  <!-- Brand Text -->
+  <text x="65" y="37"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="24"
+        font-weight="600"
+        fill="#2e2e2e"
+        stroke="#81C784"
+        stroke-width="1"
+        filter="url(#greenGlow)">
+        LifeCoach
+  </text>
+
+</svg>

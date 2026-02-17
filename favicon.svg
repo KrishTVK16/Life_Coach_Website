@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+
+  <defs>
+    <!-- Growth Gradient -->
+    <linearGradient id="lifeFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#81C784"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#lifeFavGrad)"/>
+
+  <!-- Leaf / Path -->
+  <path d="M32 18 C22 28, 22 36, 32 46 C42 36, 42 28, 32 18Z"
+        fill="white"/>
+
+</svg>
