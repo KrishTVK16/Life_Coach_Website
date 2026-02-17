@@ -381,3 +381,23 @@ function syncSessionsFromBookings() {
 
 // Sync on load
 setTimeout(syncSessionsFromBookings, 100);
+
+// Scroll to Top Functionality
+const scrollBtn = document.getElementById('scrollToTop');
+
+if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollBtn.style.display = 'flex';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}

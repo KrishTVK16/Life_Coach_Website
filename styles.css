@@ -1998,6 +1998,62 @@ section {
     transform: translateX(5px);
 }
 
+/* Section Headers (e.g., Your Goals) */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Goal Items */
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+.goal-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.goal-item {
+    padding: 1rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Mobile Adjustments for Buttons */
+@media (max-width: 480px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-header button {
+        width: 100%;
+    }
+
+    .goal-header {
+        flex-direction: column;
+    }
+
+    .goal-header button {
+        align-self: flex-start;
+        margin-top: 0.5rem;
+    }
+}
+
 /* Session Card Hover */
 .session-card {
     transition: all 0.3s ease;
@@ -2012,28 +2068,45 @@ section {
 /* Responsive Design */
 @media (max-width: 1100px) {
 
-    /* Show hamburger */
+    /* Show hamburger on mobile by default */
     .hamburger {
-        display: none !important;
-        /* Menu removed, hide hamburger */
-    }
-
-    /* Keep nav buttons visible on mobile for Dashboard */
-    .nav-buttons {
-        display: flex;
-        margin-left: auto;
+        display: flex !important;
     }
 
     /* Drawer menu style */
     .nav-menu {
-        display: none;
-        /* Menu removed */
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-white);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: 0.3s;
     }
 
     .nav-menu.active {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
+    }
+
+    /* SPECIFIC OVERRIDES FOR DASHBOARD PAGE */
+    body.dashboard-page .hamburger {
+        display: none !important;
+    }
+
+    body.dashboard-page .nav-menu {
+        display: none !important;
     }
 
     .hero-title {
